@@ -101,6 +101,9 @@ services:
       - geoserver-data-dir:/geoserver_data/data
     env_file:
       - ./scripts/docker/env/production/django.env
+    environment:
+      - SITEURL=http://$IP_PUBLIC
+      - GEOSERVER_WEB_UI_LOCATION=http://$IP_PUBLIC/geoserver
 
   geonode:
     image: geonode/nginx:geoserver
